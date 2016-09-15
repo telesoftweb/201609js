@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>10日で覚えるJavaScript</title>
+	<link rel="stylesheet" href="chap5.css" type="text/css">
+	<script type="text/javascript">
+		setEvent(window, 'load',	//IE7、8対応
+			function(event){
+				var elem = document.getElementById('lnk_closeAll');
+				setEvent(elem, 'click', closeAll);	//IE7、8対応
+				var elem = document.getElementById('lnk_openAll');
+				setEvent(elem, 'click', openAll);	//IE7、8対応
+				//全見出しに設定
+				setEventToTitles();
+			}
+		);
+
+		//開閉関数
+		function openAll(event){
+			if(event.preventDefault) event.preventDefault();	//IE7、8対応
+			changeAll(false);
+		}
+		function closeAll(event){
+			if(event.preventDefault) event.preventDefault();	//IE7、8対応
+			changeAll(true);
+		}
+		//trueならすべて閉じる、falseならすべて展開
+		function changeAll(close){
+			var titles = document.getElementsByTagName('h2');
+			for(var i=0; i<titles.length; i++){
+				var parent = titles[i].parentNode;
+				var topics = parent.getElementsByTagName('div');
+				for(var j=0; j<topics.length; j++){
+					if(close){
+						topics[0].className = 'close';
+					} else {
+						topics[0].className = 'open';
+					}
+				}
+			}
+		}
+
+		//状態を反転する
+		function setEventToTitles(){
+			var titles = document.getElementsByTagName('h2');
+			for(var i=0; i<titles.length; i++){
+				setEvent(titles[i], 'click', toggleTopic);	//IE7、8対応
+			}
+		}
+		function toggleTopic(event){
+			var title = getTarget(event);	//IE7、8対応
+			var parent = title.parentNode;
+			var topics = parent.getElementsByTagName('div');
+			if(topics[0].className == 'close'){
+				topics[0].className = 'open';
+			} else {
+				topics[0].className = 'close';
+			}
+		}
+
+		//IE対応関数
+		function setEvent(elem, type, handler){
+			if(elem.addEventListener){
+				elem.addEventListener(type, handler, false);
+			} else {
+				elem.attachEvent('on' + type, handler);
+			}
+		}
+		function getTarget(event){
+			if(event.currentTarget){
+				return event.currentTarget;
+			} else {
+				return event.srcElement;
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="wrapper">
+		<h1>よくある質問と回答</h1>
+		<p>
+			<a id="lnk_closeAll" href="#">すべて閉じる</a>
+			<a id="lnk_openAll" href="#">すべて展開</a>
+		</p>
+
+		<div id="topic1">
+			<h2>電源ランプが赤く光り、しばらくすると製品が動かなくなります</h2>
+			<div class="close">
+			<p>電源ランプが赤く光るのは内蔵バッテリーが消耗していることを示しています。
+			コンセントを接続して充電してください。</p>
+			</div>
+		</div>
+
+		<div id="topic2">
+			<h2>ときどきブザーが鳴りますが、問題ないでしょうか？</h2>
+			<div class="open">
+			<p>本製品の長時間利用により低温やけどを負うことがあります。
+			長時間使い続けていることをユーザーに伝えるため、
+			4時間15分32秒ごとにピッピッという警告音を鳴らすようにしております。</p>
+			</div>
+		</div>
+
+		<div id="topic3">
+			<h2>製品を床に落としてしまいました。問題ないでしょうか？</h2>
+			<div class="open">
+			<p>本製品は高さ1メートルからの落下テスト10万回をパスしております。
+			ただし、1メートル以上の高さから落下した場合は、
+			故障する可能性がありますので、お近くのサービスセンターにご相談ください。</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

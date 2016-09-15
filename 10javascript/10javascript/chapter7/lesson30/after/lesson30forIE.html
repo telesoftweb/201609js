@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>10日で覚えるJavaScript</title>
+	<style>
+		#wrapper{width: 380px;}
+		ul{list-style-type: none; background: gold; padding: 4px;}
+		#text{font-size:13px; line-height: 1.5em; border: solid 1px blue;
+			padding: 8px; height: 240px; overflow: auto;}
+	</style>
+	<script type="text/javascript">
+		setEvent(window, 'load',	//IE7、8対応
+			function(event){
+				var elem = document.getElementById('btn_loadtext');
+				setEvent(elem, 'click', loadText);
+			}
+		);
+		//テキスト読み込み
+		function loadText(event){
+			var req = new XMLHttpRequest();
+			req.open('GET', 'aozora.txt');
+			req.onreadystatechange = function(event){
+				if(req.readyState == 4){
+					var text = document.getElementById('text');
+					if(req.status == 200){
+						text.innerHTML = req.responseText;
+					} else {
+						text.innerHTML = '読み込みエラー';
+					}
+				}
+			};
+			req.send();
+		}
+
+		//IE対応関数
+		function setEvent(elem, type, handler){
+			if(elem.addEventListener){
+				elem.addEventListener(type, handler, false);
+			} else {
+				elem.attachEvent('on' + type, handler);
+			}
+		}
+		function getTarget(event){
+			if(event.currentTarget){
+				return event.currentTarget;
+			} else {
+				return event.srcElement;
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="wrapper">
+		<h1>テキスト読み込み</h1>
+		<input id="btn_loadtext" type="button" value="読み込み">
+		<div id="text">
+		</div>
+	</div>
+
+</body>
+</html>

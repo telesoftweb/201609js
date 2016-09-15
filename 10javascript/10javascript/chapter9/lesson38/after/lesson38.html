@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>10日で覚えるJavaScript</title>
+	<style>
+		#wrapper{width: 380px;}
+		#div_status{font-size:13px; line-height: 1.5em; border: solid 1px blue;
+			padding: 8px; margin:12px 0px;}
+		table{border:solid 1px orange; border-spacing:0px;}
+		th,td{border:solid 1px orange; padding:4px;}
+	</style>
+	<script type="text/javascript" src="jquery-1.7.1.min.js">
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#btn_load').click(
+				function(event){
+					$.getJSON('prod_data.json', null, createTable);
+			});
+		});
+		//表作成
+		function createTable(prod_data, textStatus, jqXHR){
+			$('#div_status').text(textStatus);
+			var tbody = $('#prod_table tbody');
+			for(var i=0; i<prod_data.length; i++){
+				tbody.append(
+					'<tr><td>' + prod_data[i].name + '</td>' + 
+					'<td>' + prod_data[i].price + '</td></tr>'
+				);
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="wrapper">
+		<h1>JSON読み込み</h1>
+		<input type="button" id="btn_load" value="読み込み">
+		<div id="div_status">
+		</div>
+		<table id="prod_table">
+			<thead>
+				<tr><th>製品名</th><th>価格</th></tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>10日で覚えるJavaScript</title>
+	<link rel="stylesheet" href="gallery.css" type="text/css">
+	<script type="text/javascript">
+		var photo_list = [
+				'img/photo001.jpg', 'img/photo002.jpg', 'img/photo003.jpg', 
+				'img/photo004.jpg', 'img/photo005.jpg' 
+			];
+		var curphoto = 0;
+		setEvent(window, 'load',	//IE7、8対応
+			function(event){
+				//サムネール作成
+				createThumbs();
+			}
+		);
+		//サムネール作成
+		function createThumbs(event){
+			var holder = document.getElementById('thumbsholder');
+			while(holder.childNodes.length > 0){
+				holder.removeChild(holder.firstChild);
+			}
+			for(var i=0; i<photo_list.length; i++){
+				var img = document.createElement('img');
+				img.src = photo_list[i];
+				img.width = 96;
+				img.height = 72;
+				img.photoid = i;
+				setEvent(img, 'click', showPhoto);	//IE7、8対応
+				holder.appendChild(img);
+			}
+			var large = document.getElementById('img_large');
+			large.src = photo_list[0];
+		}
+		function showPhoto(event){
+			var img = getTarget(event);	//IE7、8対応
+			var large = document.getElementById('img_large');
+			large.src = img.src;
+			curphoto = parseInt(img.photoid);
+		}
+
+		//IE対応関数
+		function setEvent(elem, type, handler){
+			if(elem.addEventListener){
+				elem.addEventListener(type, handler, false);
+			} else {
+				elem.attachEvent('on' + type, handler);
+			}
+		}
+		function getTarget(event){
+			if(event.currentTarget){
+				return event.currentTarget;
+			} else {
+				return event.srcElement;
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="wrapper">
+		<h1>写真ギャラリー</h1>
+		<div id="imageholder">
+			<p>
+			<a id="lnk_prev" href="#"><img src="img/prev-arrow.png"></a>
+			<img id="img_large" src="img/photo001.jpg"/>
+			<a id="lnk_next" href="#"><img src="img/next-arrow.png"></a>
+			</p>
+		</div>
+		<div id="thumbsholder">
+			<img src="img/photo001.jpg" width="96px" height="72px">
+			<img src="img/photo001.jpg" width="96px" height="72px">
+			<img src="img/photo001.jpg" width="96px" height="72px">
+			<img src="img/photo001.jpg" width="96px" height="72px">
+			<img src="img/photo001.jpg" width="96px" height="72px">
+		</div>
+	</div>
+</body>
+</html>

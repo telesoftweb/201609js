@@ -1,0 +1,25 @@
+@charset utf-8;
+*{
+	line-height: 1.5em;
+}
+
+#wrapper{
+	width: 380px;
+	margin: 16px;
+}
+h1{
+	font-size: 20px;
+	border: solid 2px orange;
+	padding: 2px 4px;
+	margin: 1em 0 0.5em 0;
+}
+h2{
+	background: lightblue;
+	padding: 2px 4px;
+	font-size: 12px;
+	margin: 1em 0 0.5em 0;
+	cursor: pointer;
+}
+p{
+	font-size: 12px;
+}

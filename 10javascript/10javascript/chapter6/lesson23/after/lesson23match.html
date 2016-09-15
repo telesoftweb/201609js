@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>10日で覚えるJavaScript</title>
+	<style>
+		#wrapper{width: 380px;}
+		textarea{width: 370px;}
+		dt{background: lightblue; padding:4px; margin-top:8px;}
+		dd{margin:2px;}
+		span{color:red;}
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		var regexp = /\d+/g;
+		var str = '200年ぶりに50度を超える猛暑となった。'
+		var ms = str.match(regexp);
+		for(var i=0; i<ms.length; i++){
+			document.write('<p>' + ms[i] + '</p>');
+		}
+	</script>
+</body>
+</html>

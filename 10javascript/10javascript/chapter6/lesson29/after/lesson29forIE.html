@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>10日で覚えるJavaScript</title>
+	<style>
+		#wrapper{width: 380px;}
+		ul{list-style-type: none; background: gold; padding: 4px;}
+	</style>
+	<script type="text/javascript">
+		setEvent(window, 'load',	//IE7、8対応
+			function(event){
+				loadCookie();
+				var elem = document.getElementById('txt_name');
+				setEvent(elem, 'change', saveCookie);	//IE7、8対応
+				elem = document.getElementById('txt_mail');
+				setEvent(elem, 'change', saveCookie);	//IE7、8対応
+			}
+		);
+		//クッキー読み込み
+		function loadCookie(event){
+			var str = document.cookie;
+			if(!str) return;
+			document.getElementById('output').innerHTML = str;
+			var sp1 = str.split(';');
+			for(var i=0; i<sp1.length; i++){
+				var s = sp1[i].replace(/\s/, '');
+				var sp2 = s.split('=');
+				document.getElementById(sp2[0]).value 
+					= unescape(sp2[1]);
+			}
+		}
+		//クッキー保存
+		function saveCookie(event){
+			var elem = getTarget(event);	//IE7、8対応
+			document.cookie = elem.id + '=' + escape(elem.value);
+		}
+
+		//IE対応関数
+		function setEvent(elem, type, handler){
+			if(elem.addEventListener){
+				elem.addEventListener(type, handler, false);
+			} else {
+				elem.attachEvent('on' + type, handler);
+			}
+		}
+		function getTarget(event){
+			if(event.currentTarget){
+				return event.currentTarget;
+			} else {
+				return event.srcElement;
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="wrapper">
+		<h1>データを入力してください</h1>
+		<ul>
+			<li><input type="text" id="txt_name" value="お名前"></li>
+			<li><input type="text" id="txt_mail" value="メールアドレス"></li>
+		</ul>
+		<div id="output"></div>
+	</div>
+
+</body>
+</html>

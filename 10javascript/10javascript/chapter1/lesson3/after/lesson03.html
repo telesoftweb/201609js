@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>10日で覚えるJavaScript</title>
+	<script type="text/javascript">
+		//変数の定義
+		var prod_name = 'テンデイパックS';
+		var prod_price = 2400;
+	</script>
+</head>
+<body>
+	<h1>新製品
+		<script type="text/javascript">document.write(prod_name);</script>
+	のご紹介</h1>
+	<p>話題の
+		<script type="text/javascript">document.write(prod_name);</script>
+		を通常価格
+		<script type="text/javascript">document.write(prod_price);</script>
+	円のところを</p>
+	<p>特別価格
+		<script type="text/javascript">document.write(prod_price * 0.7);</script>
+	円でご提供！</p>
+
+	<p>まとめ買いならさらにお得！　10個につき500円お引きします。</p>
+	<script type="text/javascript">
+		var kosuu = 30;
+		var special_price = prod_price * 0.7 * kosuu - kosuu / 10 * 500;
+		document.write('<p>' + kosuu + '個ご購入なら、通常' + 
+			(prod_price * kosuu) + '円のところが、今なら' +
+			special_price + '円！</p>');
+	</script>
+</body>
+</html>

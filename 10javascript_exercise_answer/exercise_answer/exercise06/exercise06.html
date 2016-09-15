@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>10日で覚えるJavaScript</title>
+	<style>
+		#colorZone{width: 400px; height: 80px; background: black; margin-top:16px;}
+	</style>
+	<script type="text/javascript">
+		window.addEventListener('load',
+			function(){
+				var links = document.getElementsByTagName('a');
+				for(var i=0; i<links.length; i++){
+					links[i].addEventListener('click', clickLink, false);
+				}
+			}
+		,false);
+
+		function clickLink(event){
+			event.preventDefault();
+			var div = document.getElementById('colorZone');
+			div.style.background = event.currentTarget.id;
+		}
+	</script>
+</head>
+<body>
+	<a href="#" id="red">リンク1</a>
+	<a href="#" id="green">リンク2</a>
+	<a href="#" id="blue">リンク3</a>
+	<div id="colorZone"></div>
+</body>
+</html>

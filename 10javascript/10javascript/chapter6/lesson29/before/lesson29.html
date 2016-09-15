@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>10日で覚えるJavaScript</title>
+	<style>
+		#wrapper{width: 380px;}
+		ul{list-style-type: none; background: gold; padding: 4px;}
+	</style>
+	<script type="text/javascript">
+		window.addEventListener('load',
+			function(event){
+				loadCookie();
+				var elem = document.getElementById('txt_name');
+				elem.addEventListener('change', saveCookie, false);
+				elem = document.getElementById('txt_mail');
+				elem.addEventListener('change', saveCookie, false);
+			}
+		, false);
+		//クッキー読み込み
+		function loadCookie(event){
+		}
+		//クッキー保存
+		function saveCookie(event){
+		}
+	</script>
+</head>
+<body>
+	<div id="wrapper">
+		<h1>自動記憶</h1>
+		<ul>
+			<li><input type="text" id="txt_name" value="お名前"></li>
+			<li><input type="text" id="txt_mail" value="メールアドレス"></li>
+		</ul>
+	</div>
+
+</body>
+</html>

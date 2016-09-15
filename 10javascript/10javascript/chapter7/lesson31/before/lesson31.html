@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>10日で覚えるJavaScript</title>
+	<style>
+		#wrapper{width: 380px;}
+		ul{list-style-type: none; background: gold; padding: 4px;}
+		#text{font-size:13px; line-height: 1.5em; border: solid 1px blue;
+			padding: 8px; height: 246px; overflow: auto;}
+	</style>
+	<script type="text/javascript">
+		var readingpart = 0;
+		window.addEventListener('load',
+			function(event){
+				var elem = document.getElementById('text');
+				elem.addEventListener('scroll', scrollText, false);
+				loadText();
+			}
+		, false);
+		//テキスト読み込み
+		function loadText(){
+		}
+		//スクロール
+		function scrollText(event){
+		}
+	</script>
+</head>
+<body>
+	<div id="wrapper">
+		<h1>スクロール読み込み</h1>
+		<div id="text">
+		</div>
+		<p id="output"></p>
+	</div>
+
+</body>
+</html>

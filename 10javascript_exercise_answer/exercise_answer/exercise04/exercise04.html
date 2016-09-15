@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>10日で覚えるJavaScript</title>
+	<style>
+		#basket{width: 300px; }
+		.empty_basket{border:dotted 6px darkcyan; background: black; padding: 8px;}
+		.filled_basket{border:dotted 6px green; background: yellow; padding: 8px;}
+	</style>
+	<script type="text/javascript">
+		window.onload = fillBasket;
+		function fillBasket(){
+			var elem = document.getElementById('basket');
+			elem.className = 'filled_basket';
+			elem.innerHTML = '<p>商品が入る</p>';
+		}
+	</script>
+</head>
+<body>
+	<div id="basket" class="empty_basket">
+	</div>
+
+</body>
+</html>

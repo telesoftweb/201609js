@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<prod_data>
+	<product name="リラックスチェア" price="4000"/>
+	<product name="リラックスデスク" price="12000"/>
+	<product name="ブックスタンド" price="800"/>
+</prod_data>

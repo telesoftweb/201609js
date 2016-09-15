@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>10日で覚えるJavaScript</title>
+	<style>
+		table{border:solid 1px orange; border-spacing:0px; margin-bottom:16px;}
+		th,td{border:solid 1px orange; padding:4px;}
+	</style>
+	<script type="text/javascript">
+		function checkUserAgent(){
+			var ua = window.navigator.userAgent;
+			var browsername='unknown';
+			var version='0';
+			var regexps = [
+				/(MSIE) ([\d.]+)/, 
+				/(Firefox)\/([\d.]+)/,
+				/(Chrome)\/([\d.]+)/
+			];
+			//IE、Firefox、Chrome判定
+			for(var i=0; i<regexps.length; i++){
+				var m = ua.match(regexps[i]);
+				if(m){
+					browsername = m[1];
+					version = m[2];
+					return browsername + '/' + version;
+				}
+			}
+			//Chrome以外のWebKit系ブラウザを判定
+			if(ua.indexOf('AppleWebKit')>0){
+				var m = ua.match(/iPhone|iPad|Android/);
+				if(m){
+					browsername = m[0];
+				} else {
+					browsername = 'Safari';
+				}
+				version = ua.match(/Version\/([\d.]+)/)[1];
+				return browsername + '/' + version;
+			}
+			return 'unknown/0';
+		}
+	</script>
+</head>
+<body>
+	<h1>ブラウザーチェック</h1>
+	<script type="text/javascript">
+		document.write('<p>' + checkUserAgent() + '</p>');
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>10日で覚えるJavaScript</title>
+	<style>
+		table{border:solid 1px orange; border-spacing:0px; margin-bottom:16px;}
+		th,td{border:solid 1px orange; padding:4px;}
+	</style>
+</head>
+<body>
+	<h1>Navigator</h1>
+	<table>
+		<thead>
+		<tr><th>プロパティ名</th><th>値</th></tr>
+		</thead>
+		<tbody>
+		<script type="text/javascript">
+			for(var p in window.navigator){
+				document.write('<tr>');
+				document.write('<td>' + p + '</td>');
+				document.write('<td>' + window.navigator[p] + '</td>');
+				document.write('</tr>');
+			}
+		</script>
+		<tbody>
+	</table>
+
+</body>
+</html>

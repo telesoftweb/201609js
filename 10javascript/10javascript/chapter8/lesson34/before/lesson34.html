@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>10日で覚えるJavaScript</title>
+	<style>
+		table{border:solid 1px orange; border-spacing:0px;}
+		th,td{border:solid 1px orange; padding:4px;}
+	</style>
+	<script type="text/javascript">
+		function Product(name, price){
+			this.name = name;
+			this.price = price;
+		};
+		var prod_data = [];
+		prod_data.push( new Product('リラックスチェア', 4000) );
+		prod_data.push( new Product('リラックスデスク', 12000) );
+		prod_data.push( new Product('ブックスタンド', 800) );
+
+		window.addEventListener('load',
+			function(event){
+				createTable();
+			}
+		, false);
+		//表作成
+		function createTable(){
+			var table = document.getElementById('prod_table');
+			var tbody = document.getElementsByTagName('tbody')[0];
+			for(var i=0; i<prod_data.length; i++){
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>新製品価格表</h1>
+	<table id="prod_table">
+		<thead>
+			<tr><th>製品名</th><th>価格</th><th>10個</th></tr>
+		</thead>
+		<tbody>
+		</tbody>
+	</table>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>10日で覚えるJavaScript</title>
+	<style>
+		table{border:solid 1px orange; border-spacing:0px;}
+		th,td{border:solid 1px orange; padding:4px; text-align: center;}
+		.outer{width: 328px; text-align: center;}
+		.prod_list{text-align: center;}
+		ul{list-style-type: none; background: gold; padding: 4px;}
+		li{text-align: left;}
+		[type = "button"], [type = "submit"]{margin: 16px;}
+		#basket{width: 300px; margin: auto;}
+		.empty_basket{border:dotted 6px darkcyan; 
+			background: black; padding: 8px;}
+		.filled_basket{border:dotted 6px green; 
+			background: yellow; padding: 8px;}
+	</style>
+	<script type="text/javascript">
+		window.onload = pageLoaded;
+		//ページロード時の処理
+		function pageLoaded(event){
+			var elem = document.getElementById('btn_addprod');
+			elem.onclick = addProduct;
+		}
+		//btn_addprodクリック時の処理
+		function addProduct(event){
+			var elem = document.getElementById('basket');
+			elem.className = 'filled_basket';
+			elem.innerHTML += '<p>商品が入る</p>';
+		}
+	</script>
+</head>
+<body>
+	<h1>商品購入フォーム</h1>
+	<div class="outer">
+		<form>
+			<ul class="prod_list">
+				<li><input type="radio" name="products" value="none" checked>
+					なし</li>
+				<li><input type="radio" name="products" value="リラックスチェア">
+					リラックスチェア</li>
+				<li><input type="radio" name="products" value="リラックスデスク">
+					リラックスデスク</li>
+				<li><input type="radio" name="products" value="ブックスタンド">
+					ブックスタンド</li>
+			</ul>
+			<input type="text" id="txt_amount" value="0">個
+			<input type="button" id="btn_addprod" value="▼add">
+			<div id="basket" class="empty_basket">
+			</div>
+			<input type="submit" value="購入">
+		</form>
+	<div>
+
+</body>
+</html>

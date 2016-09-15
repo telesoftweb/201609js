@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>10日で覚えるJavaScript</title>
+	<style>
+		#wrapper{width: 380px;}
+		textarea{width: 370px;}
+		dt{background: lightblue; padding:4px; margin-top:8px;}
+		dd{margin:2px;}
+	</style>
+	<script type="text/javascript">
+		window.addEventListener('load',
+			function(e){
+				var elem = document.getElementById('btn_substr');
+				elem.addEventListener('click', testSubstr, false);
+				elem = document.getElementById('btn_substring');
+				elem.addEventListener('click', testSubstring, false);
+				elem = document.getElementById('btn_split');
+				elem.addEventListener('click', testSplit, false);
+				elem = document.getElementById('btn_indexOf');
+				elem.addEventListener('click', testIndexOf, false);
+			}
+		,false);
+		//substrメソッド
+		function testSubstr(e){
+		}
+		//substringメソッド
+		function testSubstring(e){
+		}
+		//splitメソッド
+		function testSplit(e){
+		}
+		//indexOfメソッド
+		function testIndexOf(e){
+		}
+	</script>
+</head>
+<body>
+	<div id="wrapper">
+		<h1>テキストキッチン</h1>
+		<dl>
+			<dt>ソーステキスト</dt>
+			<dd>
+			<textarea id="txt_source">翔泳社／10日でおぼえる／JavaScript</textarea>
+			</dd>
+			<dt>部分取り出し</dt>
+			<dd><input type="text" id="txt_substr1" size="1" value="1">
+			<input type="text" id="txt_substr2" size="1" value="8">
+			<input type="button" id="btn_substr" value="substr">
+			<input type="button" id="btn_substring" value="substring"></dd>
+			<dd><div id="output_substr"></div></dd>
+			<dt>区切り文字で分割</dt>
+			<dd><input type="text" id="txt_split" size="1" value="／">
+			<input type="button" id="btn_split" value="split"></dd>
+			<dd><div id="output_split"></div></dd>
+			<dt>検索</dt>
+			<dd><input type="text" id="txt_indexOf" size="8" value="J">
+			<input type="button" id="btn_indexOf" value="indexOf"></dd>
+			<dd><div id="output_indexOf"></div></dd>
+		</dl>
+	</div>
+
+</body>
+</html>

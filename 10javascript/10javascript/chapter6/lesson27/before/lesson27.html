@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>10日で覚えるJavaScript</title>
+	<style>
+		#wrapper{width: 380px;}
+		ul{list-style-type: none; background: gold; padding: 4px;}
+	</style>
+	<script type="text/javascript">
+		window.addEventListener('load', 
+			function(event){
+				var elem = document.getElementById('btn_go');
+				elem.addEventListener('click', goNextPage, false);
+			}
+		, false);
+		function goNextPage(event){
+		}
+	</script>
+</head>
+<body>
+	<div id="wrapper">
+		<h1>ページA</h1>
+		<ul>
+		<li><input type="radio" name="links" value="lesson27-b" checked>ページB</li>
+		<li><input type="radio" name="links" value="lesson27-c">ページC</li>
+		</ul>
+		<ul>
+		<li><input type="radio" name="colors" value="red" checked>赤</li>
+		<li><input type="radio" name="colors" value="green">緑</li>
+		<li><input type="radio" name="colors" value="blue">青</li>
+		</ul>
+		<input type="button" id="btn_go" value="NextページへGO!">
+	</div>
+
+</body>
+</html>

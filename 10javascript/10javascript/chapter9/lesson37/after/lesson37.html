@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>10日で覚えるJavaScript</title>
+	<link rel="stylesheet" href="lesson37.css" type="text/css">
+	<script type="text/javascript" src="jquery-1.7.1.min.js">
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#lnk_closeAll').click(closeAll);
+			$('#lnk_openAll').click(openAll);
+			$('h2').click(toggleTopic);
+		});
+		//すべて表示・非表示
+		function closeAll(event){
+			event.preventDefault();
+			$('.topic > div').hide('fast');
+		}
+		function openAll(event){
+			event.preventDefault();
+			$('.topic > div').show('fast');
+		}
+		//クリックしたものを切り替え
+		function toggleTopic(event){
+			var div = $(event.currentTarget).siblings('div');
+			div.toggle('fast');
+		}
+	</script>
+</head>
+<body>
+	<div id="wrapper">
+		<h1>よくある質問と回答</h1>
+		<p>
+			<a id="lnk_closeAll" href="#">すべて閉じる</a>
+			<a id="lnk_openAll" href="#">すべて展開</a>
+		</p>
+
+		<div class="topic">
+			<h2>電源ランプが赤く光り、しばらくすると製品が動かなくなります</h2>
+			<div>
+			<p>電源ランプが赤く光るのは内蔵バッテリーが消耗していることを示しています。
+			コンセントを接続して充電してください。</p>
+			</div>
+		</div>
+
+		<div class="topic">
+			<h2>ときどきブザーが鳴りますが、問題ないでしょうか？</h2>
+			<div>
+			<p>本製品の長時間利用により低温やけどを負うことがあります。
+			長時間使い続けていることをユーザーに伝えるため、
+			4時間15分32秒ごとにピッピッという警告音を鳴らすようにしております</p>
+			</div>
+		</div>
+
+		<div class="topic">
+			<h2>製品を床に落としてしまいました。問題ないでしょうか？</h2>
+			<div>
+			<p>本製品は高さ1メートルからの落下テスト10万回をパスしております。
+			ただし、1メートル以上の高さから落下した場合は、
+			故障する可能性がありますので、お近くのサービスセンターにご相談ください。</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

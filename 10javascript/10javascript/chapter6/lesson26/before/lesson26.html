@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>10日で覚えるJavaScript</title>
+	<style>
+		#wrapper{width: 380px;}
+		#watch{font-size: 96px; background: darkcyan; padding: 10px;
+			color: white; margin: 8px 0px;}
+		.alm_hide{display: none;}
+		.alm_show{font-size: 32px; background: red; padding: 6px;
+			color: white; margin: 4px 0px; text-align: center;}
+	</style>
+	<script type="text/javascript">
+		window.addEventListener('load', 
+			function(event){
+				var elem = document.getElementById('alm_message');
+				elem.className = 'alm_hide';
+				elem = document.getElementById('btn_alarm');
+				elem.addEventListener('click', setAlarm, false);
+				startWatch();
+			}
+		, false);
+		//時計開始
+		function startWatch(){
+		}
+		//0で埋めて2桁にする
+		function zero2D(num){
+			var str = '000' + num;
+			return str.substr(-2, 2);
+		}
+		//アラーム開始
+		function setAlarm(event){
+		}
+	</script>
+</head>
+<body>
+	<div id="wrapper">
+		<h1>デジタル時計</h1>
+		<p id="watch">12:00:00</p>
+		<div id="alm_message" class="alm_show">アラーム</div>
+		<input type="button" id="btn_alarm" value="1分後">
+	</div>
+
+</body>
+</html>

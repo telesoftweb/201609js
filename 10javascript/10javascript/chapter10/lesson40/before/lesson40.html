@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>10日で覚えるJavaScript</title>
+	<link rel="stylesheet" href="lesson40.css" type="text/css">
+	<script>
+		browser_data = [
+			{name:'IE8', share:29.23},
+			{name:'IE9', share:17.31},
+			{name:'Chrome15', share:15.4},
+			{name:'Firefox8', share:8.08},
+			{name:'Firefox7', share:6.07},
+			{name:'IE7', share:4.76}
+		];
+		window.addEventListener('load', 
+			function(event){
+				drawGraph();
+			}
+		, false);
+		//グラフ描画
+		function drawGraph(){
+		}
+	</script>
+</head>
+<body>
+	<section>
+		<h1>Webブラウザ国内シェア（2011年11月）</h1>
+		<canvas width="364" height="168">
+			canvas要素が利用できるWebブラウザで開いてください。
+		</canvas>
+	</section>
+</body>
+</html>

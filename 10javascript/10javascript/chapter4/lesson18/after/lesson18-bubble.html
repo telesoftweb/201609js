@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>10日で覚えるJavaScript</title>
+	<script type="text/javascript">
+		window.addEventListener('load',
+			//ページロード時の処理
+			function(event){
+				var result = document.getElementById('result');
+				//a要素へのイベント
+				var elem = document.getElementById('a1');
+				elem.addEventListener('click', 
+					function(event){
+						result.innerHTML += '<li>a要素：クリックされた</li>';
+						event.preventDefault();
+						result.innerHTML += '<li>a要素：既定アクションをキャンセル</li>';
+						event.stopPropagation();
+						result.innerHTML += '<li>a要素：イベント伝播を終了</li>';
+					}
+				,false);
+				//p要素へのイベント
+				elem = document.getElementById('p1');
+				elem.addEventListener('click', 
+					function(event){
+						result.innerHTML += '<li>p要素：クリックされた</li>';
+					}
+				,true);
+				//div要素へのイベント
+				elem = document.getElementById('div1');
+				elem.addEventListener('click', 
+					function(event){
+						result.innerHTML += '<li>div要素：クリックされた</li>';
+					}
+				,false);
+			}
+		, false);
+	</script>
+</head>
+<body>
+	<h1>イベントバブルテスト</h1>
+	<div id="div1">
+		<p id="p1">テキスト
+			<a id="a1" href="dummy.html">リンク</a>
+		テキスト</p>
+	</div>
+	<ul id="result"><li>メッセージリスト</li></ul>
+</body>
+</html>
